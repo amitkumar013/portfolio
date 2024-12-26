@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { Hero } from '../components/Hero'
-//import { Skills } from '../components/Skills'
-//import { Projects } from '../components/Projects'
+import { Skills } from '../components/Skills'
+ 
 
 const pageVariants = {
   initial: { opacity: 0 },
@@ -23,8 +23,7 @@ export default function Home() {
       exit="exit"
     >
       <Hero />
-      {/* <Skills />
-      <Projects /> */}
+      <Skills />
     </motion.div>
   )
 }
