@@ -6,7 +6,7 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-600 dark:text-gray-300 mb-4 md:mb-0">
-            © 2023 Your Name. All rights reserved.
+            © 2025 Amit. All rights reserved.
           </p>
           <div className="flex space-x-4">
             <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">

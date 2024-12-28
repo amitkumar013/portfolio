@@ -1,10 +1,10 @@
 "use client"
 import { motion } from 'framer-motion'
 import { AnimatedText } from './AnimatedText'
- 
+
 
 const skills = [
-  { name: 'React', level: 90, logo: '/placeholder.svg?height=80&width=80' },
+  { name: 'React', level: 90, logo: 'https://cdn.freebiesupply.com/logos/large/2x/react-1-logo-black-and-white.png' },
   { name: 'Next.js', level: 85, logo: '/placeholder.svg?height=80&width=80' },
   { name: 'TypeScript', level: 80, logo: '/placeholder.svg?height=80&width=80' },
   { name: 'Node.js', level: 75, logo: '/placeholder.svg?height=80&width=80' },
@@ -80,4 +80,3 @@ export function Skills() {
     </section>
   )
 }
-

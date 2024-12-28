@@ -33,7 +33,7 @@ export function Hero() {
         animate="visible"
       >
         <motion.div variants={itemVariants}>
-          <AnimatedText text="Hi, I'm Your Name" className="text-4xl md:text-6xl font-bold mb-4" />
+          <AnimatedText text="Hi, I'm Amit" className="text-4xl md:text-6xl font-bold mb-4" />
         </motion.div>
         <motion.div variants={itemVariants}>
           <AnimatedText text="Full Stack Developer" className="text-xl md:text-2xl mb-8 text-gray-600 dark:text-gray-300" />

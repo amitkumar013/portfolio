@@ -1,8 +1,8 @@
 "use client"
-
 import { motion } from 'framer-motion'
 import { Hero } from '../components/Hero'
 import { Skills } from '../components/Skills'
+import { Projects } from '@/components/Projects'
  
 
 const pageVariants = {
@@ -24,6 +24,8 @@ export default function Home() {
     >
       <Hero />
       <Skills />
+      <Projects />
+
     </motion.div>
   )
 }
