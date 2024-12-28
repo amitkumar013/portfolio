@@ -1,5 +1,4 @@
 "use client"
-import React from 'react';
 import '../index.css';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -11,11 +10,7 @@ export const metadata = {
   description: 'A responsive and animated portfolio with dark mode, header, and footer',
 };
 
-export default function Layout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function Layout() {
   return (
     <html lang="en">
       <head>
@@ -27,8 +22,10 @@ export default function Layout({
           <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-grow">
-              {/* Render `Home` only if children is not provided */}
-              {children || <Home />}
+              {
+                <Home />
+              }
+               
             </main>
             <Footer />
           </div>

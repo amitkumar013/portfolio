@@ -1,6 +1,8 @@
 "use client"
+
 import { motion } from 'framer-motion'
 import { AnimatedText } from './AnimatedText'
+import { AnimatedSection } from './AnimatedSection'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -27,34 +29,37 @@ const itemVariants = {
 export function Hero() {
   return (
     <section id="home" className="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-16">
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.div variants={itemVariants}>
-          <AnimatedText text="Hi, I'm Amit" className="text-4xl md:text-6xl font-bold mb-4" />
-        </motion.div>
-        <motion.div variants={itemVariants}>
-          <AnimatedText text="Full Stack Developer" className="text-xl md:text-2xl mb-8 text-gray-600 dark:text-gray-300" />
-        </motion.div>
-        <motion.p 
-          variants={itemVariants}
-          className="text-lg mb-8 max-w-2xl mx-auto text-gray-700 dark:text-gray-300"
+      <AnimatedSection>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
-          I'm passionate about creating beautiful and functional web applications that solve real-world problems.
-        </motion.p>
-        <motion.div variants={itemVariants}>
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full inline-block transition-colors"
+          <motion.div variants={itemVariants}>
+            <AnimatedText text="Hi, I'm Your Name" className="text-4xl md:text-6xl font-bold mb-4" />
+          </motion.div>
+          <motion.div variants={itemVariants}>
+            <AnimatedText text="Full Stack Developer" className="text-xl md:text-2xl mb-8 text-gray-600 dark:text-gray-300" />
+          </motion.div>
+          <motion.p 
+            variants={itemVariants}
+            className="text-lg mb-8 max-w-2xl mx-auto text-gray-700 dark:text-gray-300"
           >
-            Get in Touch
-          </motion.a>
+            I'm passionate about creating beautiful and functional web applications that solve real-world problems.
+          </motion.p>
+          <motion.div variants={itemVariants}>
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full inline-block transition-colors"
+            >
+              Get in Touch
+            </motion.a>
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </AnimatedSection>
     </section>
   )
 }
+

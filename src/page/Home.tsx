@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import { Hero } from '../components/Hero'
 import { Skills } from '../components/Skills'
 import { Projects } from '@/components/Projects'
+import { About } from '@/components/About'
+import { Contact } from '@/components/Contact'
  
 
 const pageVariants = {
@@ -23,8 +25,10 @@ export default function Home() {
       exit="exit"
     >
       <Hero />
+      <About />
       <Skills />
       <Projects />
+      <Contact />
 
     </motion.div>
   )
