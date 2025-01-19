@@ -1,27 +1,15 @@
-"use client";
 import { motion } from "framer-motion";
 import { AnimatedText } from "./AnimatedText";
 import { AnimatedSection } from "./AnimatedSection";
+import reactLogo from "../images/react-bk.png";
 
 const skills = [
-  {
-    name: "React",
-    level: 90,
-    logo: "https://cdn.freebiesupply.com/logos/large/2x/react-1-logo-black-and-white.png",
-  },
-  { name: "Next.js", level: 85, logo: "/placeholder.svg?height=80&width=80" },
-  {
-    name: "TypeScript",
-    level: 80,
-    logo: "/placeholder.svg?height=80&width=80",
-  },
+  { name: "React", level: 90, logo: reactLogo},
+  { name: "Next.js", level: 85, logo: "/placeholder.svg?height=80&width=80"},
+  { name: "TypeScript", level: 80, logo: "/placeholder.svg?height=80&width=80"},
   { name: "Node.js", level: 75, logo: "/placeholder.svg?height=80&width=80" },
   { name: "GraphQL", level: 70, logo: "/placeholder.svg?height=80&width=80" },
-  {
-    name: "Tailwind CSS",
-    level: 85,
-    logo: "/placeholder.svg?height=80&width=80",
-  },
+  { name: "Tailwind CSS", level: 85, logo: "/placeholder.svg?height=80&width=80"},
 ];
 
 const containerVariants = {
@@ -74,7 +62,6 @@ export function Skills() {
                       alt={`${skill.name} logo`}
                       className="object-contain w-full h-full"
                     />
-                    ;
                   </div>
                   <AnimatedText
                     text={skill.name}

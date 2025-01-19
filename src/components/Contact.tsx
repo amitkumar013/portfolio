@@ -1,5 +1,3 @@
-"use client"
-
 import { motion } from 'framer-motion'
 import { AnimatedText } from './AnimatedText'
 import { useState } from 'react'

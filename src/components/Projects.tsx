@@ -1,12 +1,14 @@
-"use client"
 import { motion } from 'framer-motion'
 import { AnimatedText } from './AnimatedText'
 import { AnimatedSection } from './AnimatedSection'
+import ebookImg from "../images/ebook.jpg"
+import ecommerceImg from "../images/ecommerce.jpg"
+import websiteImg from "../images/website.jpg"
 
 const projects = [
-  { id: 1, title: 'Project 1', description: 'A brief description of Project 1', image: '/placeholder.svg?height=300&width=400' },
-  { id: 2, title: 'Project 2', description: 'A brief description of Project 2', image: '/placeholder.svg?height=300&width=400' },
-  { id: 3, title: 'Project 3', description: 'A brief description of Project 3', image: '/placeholder.svg?height=300&width=400' },
+  { id: 1, title: 'Project 1', description: 'A brief description of Project 1', image: ebookImg },
+  { id: 2, title: 'Project 2', description: 'A brief description of Project 2', image: ecommerceImg },
+  { id: 3, title: 'Project 3', description: 'A brief description of Project 3', image: websiteImg },
 ]
 
 const containerVariants = {
