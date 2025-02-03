@@ -1,5 +1,3 @@
-"use client"
-
 import { useTheme } from './useTheme.ts'
 import { motion } from 'framer-motion'
 import { Sun, Moon } from 'lucide-react'

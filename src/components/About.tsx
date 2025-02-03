@@ -36,9 +36,9 @@ const textVariants = {
 
 export function About() {
   return (
-    <section id="about" className="py-20 px-4 bg-gray-50 dark:bg-gray-800">
+    <section id="about" className="py-4 px-4 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto">
-        <AnimatedText text="About Me" className="text-3xl md:text-5xl font-bold mb-10 text-center" />
+        <AnimatedText text="About Me" className="text-3xl md:text-5xl font-bold mb-8 text-center" />
         <motion.div 
           className="flex flex-col items-start gap-10"
           variants={containerVariants}

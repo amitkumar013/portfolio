@@ -2,14 +2,19 @@ import { motion } from "framer-motion";
 import { AnimatedText } from "./AnimatedText";
 import { AnimatedSection } from "./AnimatedSection";
 import reactLogo from "../images/react-bk.png";
+import nextjs from "../images/nextjs.png"
+import nodejs from "../images/nodejs.png"
+import ts from "../images/typeScript.png"
+import sb from "../images/springBoot.png"
+import tailwind from "../images/tailwind.png"
 
 const skills = [
   { name: "React", level: 90, logo: reactLogo},
-  { name: "Next.js", level: 85, logo: "/placeholder.svg?height=80&width=80"},
-  { name: "TypeScript", level: 80, logo: "/placeholder.svg?height=80&width=80"},
-  { name: "Node.js", level: 75, logo: "/placeholder.svg?height=80&width=80" },
-  { name: "GraphQL", level: 70, logo: "/placeholder.svg?height=80&width=80" },
-  { name: "Tailwind CSS", level: 85, logo: "/placeholder.svg?height=80&width=80"},
+  { name: "Next.js", level: 65, logo: nextjs},
+  { name: "TypeScript", level: 75, logo: ts},
+  { name: "Node.js", level: 90, logo: nodejs},
+  { name: "Spring Boot", level: 60, logo: sb},
+  { name: "Tailwind CSS", level: 80, logo: tailwind},
 ];
 
 const containerVariants = {
@@ -36,11 +41,11 @@ const itemVariants = {
 
 export function Skills() {
   return (
-    <section id="skills" className="py-20 px-4 bg-gray-50 dark:bg-gray-800">
-      <div className="container mx-auto">
+    <section id="skills" className="py-4 px-4 bg-gray-50 dark:bg-gray-800">
+      <div className=" container mx-auto">
         <AnimatedText
           text="My Skills"
-          className="text-3xl md:text-5xl font-bold mb-10 text-center"
+          className="py-2 text-3xl md:text-5xl font-bold mb-8 text-center"
         />
         <AnimatedSection>
           <motion.div

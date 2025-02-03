@@ -6,9 +6,9 @@ import ecommerceImg from "../images/ecommerce.jpg"
 import websiteImg from "../images/website.jpg"
 
 const projects = [
-  { id: 1, title: 'Project 1', description: 'A brief description of Project 1', image: ebookImg },
-  { id: 2, title: 'Project 2', description: 'A brief description of Project 2', image: ecommerceImg },
-  { id: 3, title: 'Project 3', description: 'A brief description of Project 3', image: websiteImg },
+  { id: 1, title: 'E-Book', description: 'A brief description of Project 1', image: ebookImg },
+  { id: 2, title: 'E-Commerce', description: 'A brief description of Project 2', image: ecommerceImg },
+  { id: 3, title: 'Website', description: 'A brief description of Project 3', image: websiteImg },
 ]
 
 const containerVariants = {
@@ -35,9 +35,9 @@ const itemVariants = {
 
 export function Projects() {
   return (
-    <section id="projects" className="py-20 px-4">
+    <section id="projects" className="py-4 px-4">
       <div className="container mx-auto">
-        <AnimatedText text="My Projects" className="text-3xl md:text-5xl font-bold mb-10 text-center" />
+        <AnimatedText text="My Projects" className="py-2 text-3xl md:text-5xl font-bold mb-8 text-center" />
         <AnimatedSection>
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
