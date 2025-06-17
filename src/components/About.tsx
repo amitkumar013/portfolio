@@ -6,7 +6,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2
+      staggerChildren: 0.3
     }
   }
 }
@@ -24,12 +24,33 @@ const itemVariants = {
 }
 
 const textVariants = {
-  hidden: { opacity: 0 },
+  hidden: { 
+    opacity: 0,
+    y: 20,
+    filter: "blur(10px)"
+  },
   visible: {
     opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
     transition: {
-      duration: 0.5,
-      ease: "easeInOut"
+      duration: 0.8,
+      ease: "easeOut"
+    }
+  }
+}
+
+const titleVariants = {
+  hidden: { 
+    opacity: 0,
+    scale: 0.8
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut"
     }
   }
 }
@@ -38,7 +59,18 @@ export function About() {
   return (
     <section id="about" className="py-4 px-4 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto">
-        <AnimatedText text="About Me" className="text-3xl md:text-5xl font-bold mb-8 text-center" />
+        <motion.div
+          variants={titleVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <AnimatedText 
+            text="About Me" 
+            className="text-3xl md:text-5xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent" 
+          />
+        </motion.div>
+        
         <motion.div 
           className="flex flex-col items-start gap-10"
           variants={containerVariants}
@@ -51,7 +83,7 @@ export function About() {
             variants={itemVariants}
           >
             <motion.p 
-              className="text-gray-600 dark:text-gray-300 mb-4 text-justify"
+              className="text-gray-600 dark:text-gray-300 mb-4 text-justify text-lg"
               variants={textVariants}
             >
               I'm a passionate Full Stack Developer with over 5 years of experience in creating web applications. 
@@ -59,7 +91,7 @@ export function About() {
               and since then, I've been hooked on the endless possibilities of technology.
             </motion.p>
             <motion.p 
-              className="text-gray-600 dark:text-gray-300 mb-4 text-justify"
+              className="text-gray-600 dark:text-gray-300 mb-4 text-justify text-lg"
               variants={textVariants}
             >
               I specialize in React, Next.js, and Node.js, and I'm always excited to learn new technologies. 

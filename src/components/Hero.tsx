@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { AnimatedText } from "./AnimatedText";
 import { AnimatedSection } from "./AnimatedSection";
 import amit from "../images/amit.jpg";
@@ -26,7 +26,37 @@ const itemVariants = {
   },
 };
 
+const textVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
+
+const typingVariants = {
+  hidden: { width: 0 },
+  visible: {
+    width: "100%",
+    transition: {
+      duration: 1.5,
+      ease: "easeInOut",
+    },
+  },
+};
+
 export function Hero() {
+  const { scrollYProgress } = useScroll();
+  
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+  const titleScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.8]);
+  const descriptionOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+  const descriptionY = useTransform(scrollYProgress, [0, 0.3], [0, 50]);
+
   return (
     <section
       id="home"
@@ -57,14 +87,24 @@ export function Hero() {
 
               {/* Name & Title */}
               <div className="flex flex-col items-center mt-6 text-center">
-                <AnimatedText
-                  text="Hi, I'm Amit"
-                  className="text-2xl font-bold mb-2"
-                />
-                <AnimatedText
-                  text="Full Stack Developer"
-                  className="text-lg text-blue-600 dark:text-gray-300"
-                />
+                <motion.div
+                  variants={textVariants}
+                  className="overflow-hidden"
+                >
+                  <AnimatedText
+                    text="Hi, I'm Amit"
+                    className="text-2xl font-bold mb-2"
+                  />
+                </motion.div>
+                <motion.div
+                  variants={typingVariants}
+                  className="overflow-hidden"
+                >
+                  <AnimatedText
+                    text="Full Stack Developer"
+                    className="text-lg text-blue-600 dark:text-gray-300"
+                  />
+                </motion.div>
               </div>
 
               {/* Spacing Fix */}
@@ -72,22 +112,49 @@ export function Hero() {
             </CardBody>
           </CardContainer>
 
-          <motion.div className="md:w-1/2 md:pl-24" variants={itemVariants}>
-            <AnimatedText
-              text="Hi, I'm Amit"
-              className="text-4xl md:text-6xl font-bold mb-4"
-            />
-            <AnimatedText
-              text="Full Stack Developer"
-              className="text-xl md:text-2xl mb-7 text-blue-600 dark:text-gray-300"
-            />
+          <motion.div 
+            className="md:w-1/2 md:pl-24" 
+            variants={itemVariants}
+            style={{
+              opacity: titleOpacity,
+              scale: titleScale,
+            }}
+          >
+            <motion.div
+              variants={textVariants}
+              className="overflow-hidden"
+            >
+              <AnimatedText
+                text="Hi, I'm Amit"
+                className="text-4xl md:text-6xl font-bold mb-4"
+              />
+            </motion.div>
+            <motion.div
+              variants={typingVariants}
+              className="overflow-hidden"
+            >
+              <AnimatedText
+                text="Full Stack Developer"
+                className="text-xl md:text-2xl mb-7 text-blue-600 dark:text-gray-300"
+              />
+            </motion.div>
             <motion.p
-              variants={itemVariants}
+              variants={textVariants}
               className="text-lg mb-8 max-w-2xl mx-auto text-gray-700 dark:text-gray-300"
+              style={{
+                opacity: descriptionOpacity,
+                y: descriptionY,
+              }}
             >
               I'm passionate about creating beautiful and functional web applications that solve real-world problems.
             </motion.p>
-            <motion.div variants={itemVariants}>
+            <motion.div 
+              variants={textVariants}
+              style={{
+                opacity: descriptionOpacity,
+                y: descriptionY,
+              }}
+            >
               <motion.a
                 href="#contact"
                 whileHover={{ scale: 1.05 }}

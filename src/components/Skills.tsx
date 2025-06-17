@@ -22,68 +22,150 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.2,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { 
+    opacity: 0,
+    y: 50,
+    scale: 0.9
+  },
   visible: {
-    y: 0,
     opacity: 1,
+    y: 0,
+    scale: 1,
     transition: {
       type: "spring",
       stiffness: 100,
+      damping: 15
     },
   },
 };
 
+const titleVariants = {
+  hidden: { 
+    opacity: 0,
+    y: -20,
+    filter: "blur(10px)"
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.8,
+      ease: "easeOut"
+    }
+  }
+};
+
+const progressBarVariants = {
+  hidden: { width: 0 },
+  visible: (level: number) => ({
+    width: `${level}%`,
+    transition: {
+      duration: 1.2,
+      ease: [0.6, -0.05, 0.01, 0.99]
+    }
+  })
+};
+
+const logoVariants = {
+  hidden: { 
+    opacity: 0,
+    scale: 0.5,
+    rotate: -180
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    rotate: 0,
+    transition: {
+      type: "spring",
+      stiffness: 200,
+      damping: 20
+    }
+  }
+};
+
 export function Skills() {
   return (
-    <section id="skills" className="py-4 px-4 bg-gray-50 dark:bg-gray-800">
-      <div className=" container mx-auto">
-        <AnimatedText
-          text="My Skills"
-          className="py-2 text-3xl md:text-5xl font-bold mb-8 text-center"
-        />
+    <section id="skills" className="py-16 px-4 bg-gray-50 dark:bg-gray-800">
+      <div className="container mx-auto">
+        <motion.div
+          variants={titleVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <AnimatedText
+            text="My Skills"
+            className="py-2 text-3xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+          />
+        </motion.div>
+        
         <AnimatedSection>
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
             variants={containerVariants}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
           >
             {skills.map((skill) => (
               <motion.div
                 key={skill.name}
-                className="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden"
+                className="bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:scale-105"
                 variants={itemVariants}
+                whileHover={{ y: -5 }}
               >
                 <div className="p-6 flex flex-col items-center">
-                  <div className="w-20 h-20 mb-4 relative">
-                    <img
+                  <motion.div 
+                    className="w-20 h-20 mb-4 relative"
+                    variants={logoVariants}
+                  >
+                    <motion.img
                       src={skill.logo}
                       alt={`${skill.name} logo`}
                       className="object-contain w-full h-full"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ type: "spring", stiffness: 300 }}
                     />
-                  </div>
-                  <AnimatedText
-                    text={skill.name}
-                    className="text-xl font-semibold mb-2"
-                  />
-                  <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600 mb-2">
+                  </motion.div>
+                  
+                  <motion.h3
+                    className="text-xl font-semibold mb-2 text-gray-800 dark:text-white"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
+                    {skill.name}
+                  </motion.h3>
+                  
+                  <div className="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-600 mb-2 overflow-hidden">
                     <motion.div
-                      className="bg-blue-600 h-2.5 rounded-full"
-                      initial={{ width: 0 }}
-                      animate={{ width: `${skill.level}%` }}
-                      transition={{ duration: 0.8, ease: "easeOut" }}
+                      className="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full"
+                      variants={progressBarVariants}
+                      custom={skill.level}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
                     />
                   </div>
-                  <AnimatedText
-                    text={`${skill.level}%`}
+                  
+                  <motion.span
                     className="text-sm font-medium text-gray-600 dark:text-gray-300"
-                  />
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                  >
+                    {skill.level}%
+                  </motion.span>
                 </div>
               </motion.div>
             ))}
